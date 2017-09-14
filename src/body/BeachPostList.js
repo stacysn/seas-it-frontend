@@ -4,19 +4,23 @@ import $ from 'jquery'
 
 class BeachPostList extends Component {
 
+
+
   constructor(props){
     super(props)
     this.state = {
+      beachName: '',
       beachLat: '',
       beachLong: '',
       time: [],
       swell: [],
       tide: [],
       wind: [],
-      beaches: [1,2,3,4,5]
+      beachSpotList: []
     }
-  }
+    this.loadBeaches = this.loadBeaches.bind(this);
 
+  }
     // let map;
     // $(document).ready(function() {
     //   initMap();
@@ -25,33 +29,33 @@ class BeachPostList extends Component {
     // initMap = () => {
     //   map = new google.maps.Map(document.getElementById('map'),{
     //     center: {lat: 36.9741, lng: -122.0308},
-    //     zoom:8
+    //     zoom:8x
     //   });
     // };
+    componentWillMount(){
 
+      this.loadBeaches()
+    }
 
-     componentWillMount(){
+    loadBeaches() {
 
-       this.state.beaches.forEach(function(beach){
-         $.ajax({
-           method: "GET",
-           url: 'https://cors-anywhere.herokuapp.com/' + "http://api.spitcast.com/api/spot/forecast/" + beach,
-           dataType: 'json',
-           crossDomain: true,
-         })
-         .then(res => {
-           console.log(res);
-           res.forEach(function(taco){
-             console.log(taco);
-           }
-          )
-        })
-       })
-    };
+      [1,2,3,4].forEach( (beach) => {
+        let beachURL = `https://cors-anywhere.herokuapp.com/http://api.spitcast.com/api/spot/forecast/${beach}`
+         $.get(beachURL, (res) => {
+           console.log("RES", res)
+            this.setState({ beachSpotList : [...this.state.beachSpotList, res[0].spot_name] })
+            //console.log("Beach Spot List", this.state.beachSpotList);
+          });
+      });
+    }
+
 
     render(){
       return (
-        <h1> Beach Post List </h1>
+        <div>
+          <h1> Beach Post List </h1>
+          <h3>{this.state.beachSpotList}</h3>
+        </div>
       );
     }
 }
