@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 // import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import $ from 'jquery'
+import 'materialize-css';
+import 'materialize-css/dist/css/materialize.min.css';
 
 class BeachPostList extends Component {
   constructor(props){
@@ -44,16 +46,19 @@ class BeachPostList extends Component {
 
     render(){
       return (
-        <div>
-          <h1> Beach Post List </h1>
-          <h3>{this.state.beachSpotList[0]}</h3>
-          <h3>{this.state.beachSpotList[1]}</h3>
-          <h3>{this.state.beachSpotList[2]}</h3>
-          <h3>{this.state.beachSpotList[3]}</h3>
+        <div className="list-group teal lighten-2">
+          <h1> Santa Cruz Popular Beaches </h1>
+          <h3><a href="#" className="list-group-item-action teal lighten-2">{this.state.beachSpotList[0]}</a></h3>
+          <h3><a href="#" className="list-group-item-action teal lighten-2">{this.state.beachSpotList[1]}</a></h3>
+          <h3><a href="#" className="list-group-item-action teal lighten-2">{this.state.beachSpotList[2]}</a></h3>
+          <h3><a href="#" className="list-group-item-action teal lighten-2">{this.state.beachSpotList[3]}</a></h3>
+          <a className="waves-effect waves-light btn-large" href="#">Wave</a>
         </div>
+
       );
     }
 }
+
 
 export default BeachPostList;
 

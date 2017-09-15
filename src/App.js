@@ -3,6 +3,8 @@ import BeachPostList from './body/BeachPostList.js';
 import './App.css';
 import './index.css';
 import $ from 'jquery';
+import 'materialize-css';
+import 'materialize-css/dist/css/materialize.min.css';
 
 class App extends Component {
   constructor(props){
@@ -25,8 +27,9 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <h1> App JS </h1>
+      <div className="App list-group blue">
+        <h1> Surf Away </h1>
+
         <BeachPostList />
       </div>
     );
