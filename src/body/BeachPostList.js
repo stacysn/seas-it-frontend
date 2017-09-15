@@ -3,9 +3,6 @@ import React, { Component } from 'react';
 import $ from 'jquery'
 
 class BeachPostList extends Component {
-
-
-
   constructor(props){
     super(props)
     this.state = {
@@ -19,7 +16,6 @@ class BeachPostList extends Component {
       beachSpotList: []
     }
     this.loadBeaches = this.loadBeaches.bind(this);
-
   }
     // let map;
     // $(document).ready(function() {
@@ -33,38 +29,33 @@ class BeachPostList extends Component {
     //   });
     // };
     componentWillMount(){
-
       this.loadBeaches()
     }
 
     loadBeaches() {
-
       [1,2,3,4].forEach( (beach) => {
         let beachURL = `https://cors-anywhere.herokuapp.com/http://api.spitcast.com/api/spot/forecast/${beach}`
          $.get(beachURL, (res) => {
            console.log("RES", res)
             this.setState({ beachSpotList : [...this.state.beachSpotList, res[0].spot_name] })
-            //console.log("Beach Spot List", this.state.beachSpotList);
           });
       });
     }
-
 
     render(){
       return (
         <div>
           <h1> Beach Post List </h1>
-          <h3>{this.state.beachSpotList}</h3>
+          <h3>{this.state.beachSpotList[0]}</h3>
+          <h3>{this.state.beachSpotList[1]}</h3>
+          <h3>{this.state.beachSpotList[2]}</h3>
+          <h3>{this.state.beachSpotList[3]}</h3>
         </div>
       );
     }
 }
 
 export default BeachPostList;
-
-
-
-
 
 // console.log("responseData", res[1].latitude);
 // this.setState({beachLat : res[1].latitude})

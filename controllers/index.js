@@ -1,4 +1,4 @@
 module.exports = {
-  beach: require ('./beachController'),
-  beachPost: require ('./beachPostController')
+  beachPost: require('./beachPostController.js'),
+  beach: require('./beachController.js')
 }
