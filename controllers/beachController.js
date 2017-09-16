@@ -14,27 +14,27 @@ function getAllBeaches(req, res){
   });
 }
  // GET a beach
-function getOne(req, response){
+ //this code retrieves the info from external api each time it is being called and
+ // does not get stored into db by not calling 'save'
+function getOneBeach(req, response){
   db.Beach.findById(req.params.beachId, function(err, beach){
     if (err){res.send(err);}
-    fetchJson('http://api.spitcast.com/api/spot/forecast/1')
+    beach = beach.toObject();
+    fetchJson(`http://api.spitcast.com/api/spot/forecast/${beach.spot_id}`)
       .then((res) => {
           beach.swell = res[0].shape_detail.swell,
           beach.tide = res[0].shape_detail.tide,
           beach.wind = res[0].shape_detail.wind,
-          beach.size = res[0].size
-          beach.save(function(err, succ){
-            if (err){res.send(err);}
-            response.json(succ);
+          beach.size = res[0].size,
+          beach.fetchWorks = true //checks if this is working
+          response.json(beach);
 
-          })
       })
-      // res.json(beach);
     })
 }
 
 
 module.exports = {
   getAllBeaches: getAllBeaches,
-  getOne: getOne
+  getOneBeach: getOneBeach
 };
