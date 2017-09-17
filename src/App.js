@@ -7,11 +7,6 @@ import $ from 'jquery';
 import 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
 
-//
-// $(document).ready(function(){
-//       $('.parallax').parallax();
-// });
-
 class App extends Component {
   constructor(props){
     super(props)
@@ -28,6 +23,7 @@ class App extends Component {
         isSignUpOpen: false,
     }
   }
+
 
   handleChange = (event) => {
     let userInfo = $(event.target).closest('.validate').data('id-type');
@@ -104,15 +100,21 @@ class App extends Component {
       return (
         <div className="home">
           <div className="parallax-container">
-              <div className="parallax"><img src="/images/sharkFinCove.jpeg"/></div>
+              <div className="parallax"><img src="/images/sc.jpg"/></div>
           </div>
-            <Header handleChange={(event) => this.handleChange(event)} toggleSignInModal={(event) => this.toggleSignInModal(event)} toggleSignupModal={(event)=> this.toggleSignupModal(event)}
-                    handleSignupSubmit={(event) => this.handleSignupSubmit(event)} handleUserNameChange={(event) => this.handleUserNameChange(event)} handlePasswordChange={(event) => this.handlePasswordChange(event)}
-                    handleSignInSubmit={(event) => this.handleSignInSubmit(event)} handleLogOut={(event) => this.handleLogOut(event)} userId={this.state.userId} userName={this.state.userName} isLoggedIn={this.state.isLoggedIn}
-                    isSignInOpen={this.state.isSignInOpen} isSignUpOpen={this.state.isSignUpOpen}
-            />
 
-            <BodyContainer userId={this.state.userId} isLoggedIn={this.state.isLoggedIn} handleChange={(event => this.handleChange(event))} />
+            <div class="section white">
+              <Header handleChange={(event) => this.handleChange(event)} toggleSignInModal={(event) => this.toggleSignInModal(event)} toggleSignupModal={(event)=> this.toggleSignupModal(event)}
+                      handleSignupSubmit={(event) => this.handleSignupSubmit(event)} handleUserNameChange={(event) => this.handleUserNameChange(event)} handlePasswordChange={(event) => this.handlePasswordChange(event)}
+                      handleSignInSubmit={(event) => this.handleSignInSubmit(event)} handleLogOut={(event) => this.handleLogOut(event)} userId={this.state.userId} userName={this.state.userName} isLoggedIn={this.state.isLoggedIn}
+                      isSignInOpen={this.state.isSignInOpen} isSignUpOpen={this.state.isSignUpOpen}
+              />
+              <BodyContainer userId={this.state.userId} isLoggedIn={this.state.isLoggedIn} handleChange={(event => this.handleChange(event))} />
+
+            </div>
+            <div className="parallax-container">
+              <div className="parallax teal"><img src="images/sc.jpg"/></div>
+            </div>
 
         </div>
       )
