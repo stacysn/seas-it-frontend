@@ -8,3 +8,8 @@ body {
 .parallax{
   position:static;
 }
+
+.brand-logo img {
+    height: 45px;
+    position: relative;
+}

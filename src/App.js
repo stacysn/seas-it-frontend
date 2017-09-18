@@ -99,11 +99,11 @@ class App extends Component {
     render (){
       return (
         <div className="home">
-          <div className="parallax-container">
-              <div className="parallax"><img src="/images/sc.jpg"/></div>
-          </div>
+            <div className="parallax-container">
+                <div className="parallax"><img src="../ocean.png"/></div>
+            </div>
 
-            <div class="section white">
+            <div className="section white">
               <Header handleChange={(event) => this.handleChange(event)} toggleSignInModal={(event) => this.toggleSignInModal(event)} toggleSignupModal={(event)=> this.toggleSignupModal(event)}
                       handleSignupSubmit={(event) => this.handleSignupSubmit(event)} handleUserNameChange={(event) => this.handleUserNameChange(event)} handlePasswordChange={(event) => this.handlePasswordChange(event)}
                       handleSignInSubmit={(event) => this.handleSignInSubmit(event)} handleLogOut={(event) => this.handleLogOut(event)} userId={this.state.userId} userName={this.state.userName} isLoggedIn={this.state.isLoggedIn}

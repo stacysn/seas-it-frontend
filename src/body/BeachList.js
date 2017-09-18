@@ -15,27 +15,14 @@ class BeachList extends Component {
       beachLong: '',
       date: [],
       hour: [],
-      swell: [],
-      tide: [],
-      wind: [],
+      shapeDetail: [],
       currentTime: [],
       beachSpotList: [],
-      selectedBeach:null
+      selectedBeach:null,
+      size_ft: []
     }
     this.loadBeaches = this.loadBeaches.bind(this);
   }
-    // let map;
-    // $(document).ready(function() {
-    //   initMap();
-    //   getBeach();
-    //
-    // initMap = () => {
-    //   map = new google.maps.Map(document.getElementById('map'),{
-    //     center: {lat: 36.9741, lng: -122.0308},
-    //     zoom:8x
-    //   });
-    // };
-
 
     componentWillMount(){
       this.loadBeaches()
@@ -50,17 +37,34 @@ class BeachList extends Component {
             this.setState({ beachSpotList : [...this.state.beachSpotList, res[0].spot_name] })
             this.setState({ date: res[0].date })
             this.setState({ hour: res[0].hour })
+            // this.setState({ shapeDetail: res[0].shape_detail})
+            // console.log("SHAPE DETAIL", this.state.tide);
             this.setState({ currentTime: currentTime})
             console.log("time:", currentTime);
           });
       });
     }
 
+    //
+    // getShapeDetail1 = (event) => {
+    //   for (var i = 0; i < event.length; i++){
+    //     this.setState({shapeDetail: event[i].shape_detail})
+    //     console.log("Shape Detail", this.state.shapeDetail);
+    //   }
+    // }
+
 //click events for each particular beach
 //try to simplify
-
     selectedPleasurePoint = (event) => {
       console.log("Pleasure Point");
+      // let shapeDetailArr = []
+      // for (var i = 0; i < event.length; i++){
+      //   shapeDetailArr.push(event[i].shape_detail);
+      // }
+      // this.setState(
+      //   {shapeDetail: shapeDetailArr}
+      // )
+      // console.log("SHAPE DETAIL LINE 67", this.state.shapeDetail);
       this.setState({selectedBeach:0})
     }
 
@@ -79,6 +83,8 @@ class BeachList extends Component {
       this.setState({selectedBeach:3})
     }
 
+
+
     render(){
       if (this.state.selectedBeach === null) {
         return (
@@ -93,7 +99,7 @@ class BeachList extends Component {
         )
       } else if (this.state.selectedBeach === 0) {
         return (
-          <BeachPage beachSpotList={this.state.beachSpotList[0]} date={this.state.date} currentTime={this.state.currentTime}/>
+          <BeachPage shapeDetail={this.state.shapeDetail} beachSpotList={this.state.beachSpotList[0]} date={this.state.date} currentTime={this.state.currentTime}/>
         );
       } else if (this.state.selectedBeach === 1) {
           return(
