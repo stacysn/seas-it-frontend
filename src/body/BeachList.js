@@ -19,7 +19,8 @@ class BeachList extends Component {
       currentTime: [],
       beachSpotList: [],
       selectedBeach:null,
-      size_ft: []
+      size_ft: [],
+      selectedBeachNumber: null
     }
     this.loadBeaches = this.loadBeaches.bind(this);
   }
@@ -49,21 +50,25 @@ class BeachList extends Component {
     selectedPleasurePoint = (event) => {
       console.log("Pleasure Point");
       this.setState({selectedBeach:0})
+      this.setState({selectedBeachNumber: 1})
     }
 
     selectedSteamers = (event) => {
       console.log("STEAMERS");
       this.setState({selectedBeach:1})
+      this.setState({selectedBeachNumber: 2})
     }
 
     selectedCowells = (event) => {
       console.log("COWELLS");
       this.setState({selectedBeach:2})
+      this.setState({selectedBeachNumber: 3})
     }
 
     selected38th = (event) => {
       console.log("38th");
       this.setState({selectedBeach:3})
+      this.setState({selectedBeachNumber: 4})
     }
 
     render(){
@@ -79,21 +84,21 @@ class BeachList extends Component {
         )
       } else if (this.state.selectedBeach === 0) {
         return (
-          <BeachPage userName={this.props.userName} beachSpotList={this.state.beachSpotList[0]} date={this.state.date} currentTime={this.state.currentTime}/>
+          <BeachPage selectedBeachNumber={this.state.selectedBeachNumber} userName={this.props.userName} beachSpotList={this.state.beachSpotList[0]} date={this.state.date} currentTime={this.state.currentTime}/>
         );
       } else if (this.state.selectedBeach === 1) {
           return(
-          <BeachPage userName={this.props.userName} beachSpotList={this.state.beachSpotList[1]} date={this.state.date} currentTime={this.state.currentTime}/>
+          <BeachPage selectedBeachNumber={this.state.selectedBeachNumber} userName={this.props.userName} beachSpotList={this.state.beachSpotList[1]} date={this.state.date} currentTime={this.state.currentTime}/>
           )
       }
         else if (this.state.selectedBeach === 2) {
         return (
-          <BeachPage userName={this.props.userName} beachSpotList={this.state.beachSpotList[2]} date={this.state.date} currentTime={this.state.currentTime}/>
+          <BeachPage selectedBeachNumber={this.state.selectedBeachNumber} userName={this.props.userName} beachSpotList={this.state.beachSpotList[2]} date={this.state.date} currentTime={this.state.currentTime}/>
         )
       }
         else if (this.state.selectedBeach === 3) {
         return (
-          <BeachPage userName={this.props.userName} beachSpotList={this.state.beachSpotList[3]} date={this.state.date} currentTime={this.state.currentTime}/>
+          <BeachPage selectedBeachNumber={this.state.selectedBeachNumber} userName={this.props.userName} beachSpotList={this.state.beachSpotList[3]} date={this.state.date} currentTime={this.state.currentTime}/>
         )
       }
     }

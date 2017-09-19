@@ -25,9 +25,10 @@ class BeachPage extends Component {
 
   componentDidMount(){
     // var dis = this;
-    let beachURL = `https://cors-anywhere.herokuapp.com/http://api.spitcast.com/api/spot/forecast/1`
+    let beachURL = `https://cors-anywhere.herokuapp.com/http://api.spitcast.com/api/spot/forecast/${this.props.selectedBeachNumber}`
     $.get(beachURL)
     .done((res) => {
+      console.log("RESSSSSSSSSS", res);
       let sizeArr = []
       for (let i = 0; i < res.length; i++){
         sizeArr.push(res[i].size_ft)
