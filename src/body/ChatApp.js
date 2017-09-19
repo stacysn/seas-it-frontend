@@ -18,7 +18,7 @@ class ChatApp extends Component{
 
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
       socket.on('init', this._initialize);
       socket.on('send:message', this._messageRecieve);
       socket.on('user:join', this._userJoined);
@@ -26,18 +26,18 @@ class ChatApp extends Component{
       socket.on('change:name', this._userChangedName);
   }
 
-  _initialize(data) {
+  _initialize = (data) => {
       var {users, name} = data;
       this.setState({users, user: name});
   }
 
-  _messageRecieve(message) {
+  _messageRecieve = (message) => {
       var {messages} = this.state;
       messages.push(message);
       this.setState({messages});
   }
 
-  _userJoined(data) {
+  _userJoined = (data) => {
       var {users, messages} = this.state;
       var {name} = data;
       users.push(name);
@@ -48,7 +48,7 @@ class ChatApp extends Component{
       this.setState({users, messages});
   }
 
-  _userLeft(data) {
+  _userLeft = (data) => {
       var {users, messages} = this.state;
       var {name} = data;
       var index = users.indexOf(name);
@@ -60,7 +60,7 @@ class ChatApp extends Component{
       this.setState({users, messages});
   }
 
-  _userChangedName(data) {
+  _userChangedName = (data) => {
       var {oldName, newName} = data;
       var {users, messages} = this.state;
       var index = users.indexOf(oldName);
@@ -72,25 +72,25 @@ class ChatApp extends Component{
       this.setState({users, messages});
   }
 
-  handleMessageSubmit(message) {
+  handleMessageSubmit = (message) => {
       var {messages} = this.state;
       messages.push(message);
       this.setState({messages});
       socket.emit('send:message', message);
   }
 
-  handleChangeName(newName) {
-      var oldName = this.state.user;
-      socket.emit('change:name', { name : newName}, (result) => {
-          if(!result) {
-              return alert('There was an error changing your name');
-          }
-          var {users} = this.state;
-          var index = users.indexOf(oldName);
-          users.splice(index, 1, newName);
-          this.setState({users, user: newName});
-      });
-  }
+  // handleChangeName = (newName) => {
+  //     var oldName = this.state.user;
+  //     socket.emit('change:name', { name : newName}, (result) => {
+  //         if(!result) {
+  //             return alert('There was an error changing your name');
+  //         }
+  //         var {users} = this.state;
+  //         var index = users.indexOf(oldName);
+  //         users.splice(index, 1, newName);
+  //         this.setState({users, user: newName});
+  //     });
+  // }
 
   render() {
       return (
@@ -100,10 +100,12 @@ class ChatApp extends Component{
               />
               <MessageList
                   messages={this.state.messages}
+                  userName={this.props.userName}
+
               />
               <MessageForm
                   onMessageSubmit={this.handleMessageSubmit}
-                  user={this.state.user}
+                  userName={this.props.userName}
               />
           </div>
       );

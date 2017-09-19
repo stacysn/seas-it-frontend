@@ -36,7 +36,7 @@ h2{
 }
 
 #output strong{
-    color: #575ed8;
+    color: white;
 }
 
 label{
@@ -45,22 +45,23 @@ label{
     padding: 10px 20px;
 }
 
-input{
+#input{
     padding: 10px 20px;
     box-sizing: border-box;
     background: #eee;
-    border: 0;
+    /*border: 0;*/
     display: block;
     width: 100%;
     background: #fff;
     border-bottom: 1px solid #eee;
     font-family: Nunito;
     font-size: 16px;
+    color: white;
 }
 
 button{
     background: #575ed8;
-    color: #fff;
+    color: blue;
     font-size: 18px;
     border: 0;
     padding: 12px 0;

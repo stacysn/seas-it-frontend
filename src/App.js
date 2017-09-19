@@ -109,7 +109,7 @@ class App extends Component {
                       handleSignInSubmit={(event) => this.handleSignInSubmit(event)} handleLogOut={(event) => this.handleLogOut(event)} userId={this.state.userId} userName={this.state.userName} isLoggedIn={this.state.isLoggedIn}
                       isSignInOpen={this.state.isSignInOpen} isSignUpOpen={this.state.isSignUpOpen}
               />
-              <BodyContainer userId={this.state.userId} isLoggedIn={this.state.isLoggedIn} handleChange={(event => this.handleChange(event))} />
+              <BodyContainer userId={this.state.userId} isLoggedIn={this.state.isLoggedIn} handleChange={(event => this.handleChange(event))} userName={this.state.userName}/>
 
             </div>
             <div className="parallax-container">

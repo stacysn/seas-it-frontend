@@ -53,7 +53,7 @@ class BeachPage extends Component {
           <Chart data={this.state.chartData} redraw/>
         </div>
         <div>
-          <ChatApp />
+          <ChatApp userName={this.props.userName}/>
         </div>
       </div>
     )

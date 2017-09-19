@@ -79,21 +79,21 @@ class BeachList extends Component {
         )
       } else if (this.state.selectedBeach === 0) {
         return (
-          <BeachPage beachSpotList={this.state.beachSpotList[0]} date={this.state.date} currentTime={this.state.currentTime}/>
+          <BeachPage userName={this.props.userName} beachSpotList={this.state.beachSpotList[0]} date={this.state.date} currentTime={this.state.currentTime}/>
         );
       } else if (this.state.selectedBeach === 1) {
           return(
-          <BeachPage beachSpotList={this.state.beachSpotList[1]} date={this.state.date} currentTime={this.state.currentTime}/>
+          <BeachPage userName={this.props.userName} beachSpotList={this.state.beachSpotList[1]} date={this.state.date} currentTime={this.state.currentTime}/>
           )
       }
         else if (this.state.selectedBeach === 2) {
         return (
-          <BeachPage beachSpotList={this.state.beachSpotList[2]} date={this.state.date} currentTime={this.state.currentTime}/>
+          <BeachPage userName={this.props.userName} beachSpotList={this.state.beachSpotList[2]} date={this.state.date} currentTime={this.state.currentTime}/>
         )
       }
         else if (this.state.selectedBeach === 3) {
         return (
-          <BeachPage beachSpotList={this.state.beachSpotList[3]} date={this.state.date} currentTime={this.state.currentTime}/>
+          <BeachPage userName={this.props.userName} beachSpotList={this.state.beachSpotList[3]} date={this.state.date} currentTime={this.state.currentTime}/>
         )
       }
     }

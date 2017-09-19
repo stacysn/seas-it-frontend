@@ -12,12 +12,12 @@ class BodyContainer extends Component {
         <div className='About App' >
           <h4> Check out the best conditions in Santa Cruz </h4>
           <h4> Chat with fellow surfers for tips, updates, and meet new friends </h4>
-          <h4> Seas the day </h4> 
+          <h4> Seas the day </h4>
         </div>
       )
   }
     return (
-      <BeachList />
+      <BeachList userName={this.props.userName} />
     )
   }
 }
