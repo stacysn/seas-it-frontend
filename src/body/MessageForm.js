@@ -27,7 +27,7 @@ class MessageForm extends Component{
 
   render() {
       return(
-          <div className='message_form black teal-text'>
+          <div className='message_form black teal-text center'>
               <h5>Write New Message </h5>
               <form onSubmit={this.handleSubmit}>
                   <input

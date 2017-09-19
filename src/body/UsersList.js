@@ -4,8 +4,9 @@ import React, { Component } from 'react';
 class UsersList extends Component{
   render() {
     return (
-      <div className='users'>
+      <div className='users center'>
         <h4> Online Chatting Surfers </h4>
+          <h6> Surfing the Web </h6>
           <ul>
             {this.props.users.map((user, i) => {
               return (
