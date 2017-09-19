@@ -7,6 +7,7 @@ class UsersList extends Component{
       <div className='users center'>
         <h4> Online Chatting Surfers </h4>
           <h6> Surfing the Web </h6>
+          <h6> Get Chat-sea </h6>
           <ul>
             {this.props.users.map((user, i) => {
               return (
