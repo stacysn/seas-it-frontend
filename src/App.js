@@ -99,8 +99,8 @@ class App extends Component {
     render (){
       return (
         <div className="home">
-            <div className="parallax-container">
-                <div className="parallax"><img src="../ocean.png"/></div>
+            <div className="background-image-container" style={{height: '500px', postition: 'relative', width: '100vw', overflow: "hidden"}}>
+              <div className="background-image" style={{postion: 'absolute', top: '0', bottom: '0', right: '0', left: '0'}}> <img src="https://i.imgur.com/Z75BVf5.jpg"/></div>
             </div>
 
             <div className="section white">

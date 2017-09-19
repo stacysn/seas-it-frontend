@@ -45,26 +45,9 @@ class BeachList extends Component {
       });
     }
 
-    //
-    // getShapeDetail1 = (event) => {
-    //   for (var i = 0; i < event.length; i++){
-    //     this.setState({shapeDetail: event[i].shape_detail})
-    //     console.log("Shape Detail", this.state.shapeDetail);
-    //   }
-    // }
-
-//click events for each particular beach
-//try to simplify
+//click events for each particular beach; try to simplify!
     selectedPleasurePoint = (event) => {
       console.log("Pleasure Point");
-      // let shapeDetailArr = []
-      // for (var i = 0; i < event.length; i++){
-      //   shapeDetailArr.push(event[i].shape_detail);
-      // }
-      // this.setState(
-      //   {shapeDetail: shapeDetailArr}
-      // )
-      // console.log("SHAPE DETAIL LINE 67", this.state.shapeDetail);
       this.setState({selectedBeach:0})
     }
 
@@ -83,8 +66,6 @@ class BeachList extends Component {
       this.setState({selectedBeach:3})
     }
 
-
-
     render(){
       if (this.state.selectedBeach === null) {
         return (
@@ -99,31 +80,24 @@ class BeachList extends Component {
         )
       } else if (this.state.selectedBeach === 0) {
         return (
-          <BeachPage shapeDetail={this.state.shapeDetail} beachSpotList={this.state.beachSpotList[0]} date={this.state.date} currentTime={this.state.currentTime}/>
+          <BeachPage beachSpotList={this.state.beachSpotList[0]} date={this.state.date} currentTime={this.state.currentTime}/>
         );
       } else if (this.state.selectedBeach === 1) {
           return(
           <BeachPage beachSpotList={this.state.beachSpotList[1]} date={this.state.date} currentTime={this.state.currentTime}/>
           )
-        }
-          else if (this.state.selectedBeach === 2) {
-          return (
-            <BeachPage beachSpotList={this.state.beachSpotList[2]} date={this.state.date} currentTime={this.state.currentTime}/>
-          )
-        }
-          else if (this.state.selectedBeach === 3) {
-          return (
-            <BeachPage beachSpotList={this.state.beachSpotList[3]} date={this.state.date} currentTime={this.state.currentTime}/>
-          )
-        }
-
       }
-
+        else if (this.state.selectedBeach === 2) {
+        return (
+          <BeachPage beachSpotList={this.state.beachSpotList[2]} date={this.state.date} currentTime={this.state.currentTime}/>
+        )
+      }
+        else if (this.state.selectedBeach === 3) {
+        return (
+          <BeachPage beachSpotList={this.state.beachSpotList[3]} date={this.state.date} currentTime={this.state.currentTime}/>
+        )
+      }
+    }
 }
 
-
 export default BeachList;
-
-// console.log("responseData", res[1].latitude);
-// this.setState({beachLat : res[1].latitude})
-// console.log("beach Lat", this.state.beachLat);

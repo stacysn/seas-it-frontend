@@ -5,7 +5,6 @@ import 'materialize-css/dist/css/materialize.min.css';
 import Chart from './Chart';
 import update from 'immutability-helper'
 
-
 class BeachPage extends Component {
   constructor(props){
     super(props);
@@ -16,44 +15,39 @@ class BeachPage extends Component {
         datasets: [
           {
             label: 'Size of Waves in Feet',
-            data: [1,2,3,4]
+            data: []
           }
         ]
       }
     }
   }
 
-
   componentDidMount(){
-    this.loadBeach()
-  }
-
-
-  loadBeach(){
+    // var dis = this;
     let beachURL = `https://cors-anywhere.herokuapp.com/http://api.spitcast.com/api/spot/forecast/1`
-    $.get(beachURL, (res) => {
+    $.get(beachURL)
+    .done((res) => {
       let sizeArr = []
-        for (let i = 0; i < res.length; i++){
-          sizeArr.push(res[i].size_ft)
-          // console.log("Size feet array", sizeArr);
-        }
-        this.setState(
-          { chartData: update(this.state.chartData, {datasets: {data: {$set: sizeArr}}})
-        })
-        console.log("DATA",this.state.chartData);
+      for (let i = 0; i < res.length; i++){
+        sizeArr.push(res[i].size_ft)
+      }
+      let currentState = this.state;
+      currentState.chartData.datasets[0].data = sizeArr
+      console.log("CURRENT STATE", currentState);
+      this.setState(
+        { chartData: update(this.state.chartData, {datasets: {data: {$set: sizeArr}}})
+      })
+    console.log("THIS.STATE.CHARTDATA", this.state.chartData);
     })
-
   }
 
   render(){
-
     console.log("Chart Data", this.state.chartData);
     return(
       <div className="beach-info teal lighten-2">
           <h1> {this.props.beachSpotList} </h1>
           <h4> Date: {this.props.date} </h4>
           <h4> Current Time: {this.props.currentTime} </h4>
-          <h4> Details: {this.props.shapeDetail} </h4>
         <div>
           <Chart data={this.state.chartData} redraw/>
         </div>

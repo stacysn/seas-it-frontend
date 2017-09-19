@@ -3,11 +3,8 @@ var express = require('express'),
     mongoose = require('mongoose'),
     bodyParser = require('body-parser'),
     db = require('./models'),
-    controllers = require('./controllers')
-    // cookieParser = require('cookie-parser'),
-    // session = require('express-session'),
-    // passport = require('passport'),
-    // LocalStrategy = require('passport-local').Strategy;
+    controllers = require('./controllers'),
+
 var app = express(),
     router = express.Router();
 
@@ -46,7 +43,6 @@ router.delete('/beaches/:beachId/beachPosts/:id', controllers.beachPost.destroy)
 router.get('/', function(req,res) {
   res.json({message: 'API Initialized!'});
 });
-
 
 //start server
 app.listen(port, function() {
