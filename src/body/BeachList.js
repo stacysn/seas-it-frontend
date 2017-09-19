@@ -71,11 +71,10 @@ class BeachList extends Component {
         return (
         <div className="list-group teal lighten-2 center">
             <h1> Santa Cruz Popular Beaches </h1>
-              <h3><a href="#" className="list-group-item-action teal lighten-2" id="pleasure-point" onClick={this.selectedPleasurePoint}>{this.state.beachSpotList[0]}</a></h3>
-              <h3><a href="#" className="list-group-item-action teal lighten-2" id="steamer-lane" onClick={this.selectedSteamers}>{this.state.beachSpotList[1]}</a></h3>
-              <h3><a href="#" className="list-group-item-action teal lighten-2" id="cowells" onClick={this.selectedCowells}>{this.state.beachSpotList[2]}</a></h3>
-              <h3><a href="#" className="list-group-item-action teal lighten-2" id="38th-ave" onClick={this.selected38th}>{this.state.beachSpotList[3]}</a></h3>
-              <a className="waves-effect waves-light btn-large" href="#">Wave</a>
+              <h3><a href="#" className="waves-effect waves-light btn-large list-group-item-action black lighten-2" id="pleasure-point" onClick={this.selectedPleasurePoint}>{this.state.beachSpotList[0]}</a></h3>
+              <h3><a href="#" className="waves-effect waves-light btn-large list-group-item-action black lighten-2" id="steamer-lane" onClick={this.selectedSteamers}>{this.state.beachSpotList[1]}</a></h3>
+              <h3><a href="#" className="waves-effect waves-light btn-large list-group-item-action black lighten-2" id="cowells" onClick={this.selectedCowells}>{this.state.beachSpotList[2]}</a></h3>
+              <h3><a href="#" className="waves-effect waves-light btn-large list-group-item-action black lighten-2" id="38th-ave" onClick={this.selected38th}>{this.state.beachSpotList[3]}</a></h3>
           </div>
         )
       } else if (this.state.selectedBeach === 0) {

@@ -3,7 +3,9 @@ var express = require('express'),
     mongoose = require('mongoose'),
     bodyParser = require('body-parser'),
     db = require('./models'),
-    controllers = require('./controllers'),
+    controllers = require('./controllers')
+
+const io = require('socket.io')();
 
 var app = express(),
     router = express.Router();
@@ -43,6 +45,11 @@ router.delete('/beaches/:beachId/beachPosts/:id', controllers.beachPost.destroy)
 router.get('/', function(req,res) {
   res.json({message: 'API Initialized!'});
 });
+
+    ////////////////////////
+////////SOCKET IO /////////////
+    ////////////////////////
+
 
 //start server
 app.listen(port, function() {

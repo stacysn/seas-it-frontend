@@ -4,6 +4,7 @@ import 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
 import Chart from './Chart';
 import update from 'immutability-helper'
+import ChatApp from './ChatApp'
 
 class BeachPage extends Component {
   constructor(props){
@@ -50,6 +51,9 @@ class BeachPage extends Component {
           <h4> Current Time: {this.props.currentTime} </h4>
         <div>
           <Chart data={this.state.chartData} redraw/>
+        </div>
+        <div>
+          <ChatApp />
         </div>
       </div>
     )
