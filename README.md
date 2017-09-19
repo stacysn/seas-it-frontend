@@ -17,7 +17,7 @@ Surf users will be able to chat with fellow surfers on the page of the desired b
 - HTML 5
 
 ##### Chat Room for Surfers within each Beach Page
-# <img src="/public/images/chatSea.jpg height=300"
+# <img src="/public/images/chatSea.jpg" height=300>
 
 #### Features:
 - `socket.io` : Chat room for surfers to keep updated with current conditions from other users and to ensure safety
