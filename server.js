@@ -1,11 +1,16 @@
 //import dependencies
-var express = require('express'),
-    mongoose = require('mongoose'),
-    bodyParser = require('body-parser'),
-    db = require('./models'),
-    controllers = require('./controllers')
+let express = require('express');
+let mongoose = require('mongoose');
+let bodyParser = require('body-parser');
+let db = require('./models');
+let controllers = require('./controllers');
+let User = db.User;
+let passport = require('passport');
+let io = require('socket.io')();
+let session = require('express-session');
+let cookieParser = require('cookie-parser');
+let LocalStrategy = require('passport-local').Strategy;
 
-const io = require('socket.io')();
 
 var app = express(),
     router = express.Router();
@@ -13,7 +18,24 @@ var app = express(),
 var port = process.env.API_PORT || 3001;
 
 app.use(bodyParser.urlencoded({extended: true }));
+app.use(express.static(__dirname + '/public'))
 app.use(bodyParser.json());
+
+app.use(cookieParser())
+app.use(session({
+  secret: 'ilovepie', // change this!
+  resave: false,
+  saveUninitialized: false
+}))
+app.use(passport.initialize())
+app.use(passport.session())
+
+// passport config
+passport.use(new LocalStrategy(db.User.authenticate()))
+passport.serializeUser(function(user, done) {
+    done(null, user.id);
+});
+passport.deserializeUser(db.User.deserializeUser())
 
 //Prevent CORS errors
 app.use(function(req, res, next) {
@@ -25,9 +47,13 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use('/api', router);
+// HOME
+app.get('/', function homepage (req, res) {
+  res.sendFile(__dirname + '/views/index.html')
+})
 
-//*****getting all beaches and 1 beach by Id *****//
+app.use('/api', router);
+////////json endpoints ///////////
 // /api/beaches
 router.get('/beaches', controllers.beach.getAllBeaches)
 router.get('/beaches/:beachId', controllers.beach.getOneBeach)
@@ -44,6 +70,30 @@ router.delete('/beaches/:beachId/beachPosts/:id', controllers.beachPost.destroy)
 //set route path and init API
 router.get('/', function(req,res) {
   res.json({message: 'API Initialized!'});
+});
+
+// auth routes
+app.post('/signup', function signup (req, res) {
+  console.log(`${req.body.username} ${req.body.password}`)
+  User.register(new User({ username: req.body.username }), req.body.password,
+    function (err, newUser) {
+      passport.authenticate('local')(req, res, function () {
+        res.send(newUser)
+      })
+    }
+  )
+})
+
+app.post('/login', passport.authenticate('local'), function (req, res) {
+  console.log(JSON.stringify(req.user));
+  res.send(req.user);
+});
+
+// passport log out
+app.get('/logout', function(req, res){
+  console.log("attempting to logout");
+  req.logout();
+  res.redirect('/');
 });
 
     ////////////////////////

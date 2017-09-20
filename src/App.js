@@ -37,7 +37,7 @@ class App extends Component {
     event.preventDefault()
     $.ajax({
       method: "POST",
-      url: "https://wayfar.herokuapp.com/signup",
+      url: "https://articulat.herokuapp.com/signup",
       data: {
         first_name: this.state.signUpFirstName,
         last_name: this.state.signUpLastName,
@@ -70,7 +70,7 @@ class App extends Component {
     event.preventDefault()
     $.ajax({
       method: "POST",
-      url: "https://wayfar.herokuapp.com/login",
+      url: "https://articulat.herokuapp.com/login",
       data: {
         username: this.state.userName,
         password: this.state.password
