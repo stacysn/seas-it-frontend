@@ -67,12 +67,6 @@ router.put('/beaches/:beachId/beachPosts/:id', controllers.beachPost.updateBeach
 router.delete('/beaches/:beachId/beachPosts/:id', controllers.beachPost.destroy)
 
 
-//******Users ******//
-router.get('/api/users/', controllers.users.show)
-router.post('/api/users/', controllers.users.create)
-router.delete('/api/users/:userId', controllers.users.destroy)
-router.get('/api/users/:userId', controllers.users.showById)
-
 //set route path and init API
 router.get('/', function(req,res) {
   res.json({message: 'API Initialized!'});

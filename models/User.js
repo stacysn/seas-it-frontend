@@ -8,8 +8,7 @@ let UserSchema = new Schema({
   password: String,
   email_address: String,
   username: String
-  // _city: {type: Schema.Types.ObjectId, ref: 'City'}
-  // user_img : String
+
 })
 
 UserSchema.plugin(passportLocalMongoose)
