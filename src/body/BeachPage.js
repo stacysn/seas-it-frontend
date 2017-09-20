@@ -28,23 +28,19 @@ class BeachPage extends Component {
     let beachURL = `https://cors-anywhere.herokuapp.com/http://api.spitcast.com/api/spot/forecast/${this.props.selectedBeachNumber}`
     $.get(beachURL)
     .done((res) => {
-      console.log("RESSSSSSSSSS", res);
       let sizeArr = []
       for (let i = 0; i < res.length; i++){
         sizeArr.push(res[i].size_ft)
       }
       let currentState = this.state;
       currentState.chartData.datasets[0].data = sizeArr
-      console.log("CURRENT STATE", currentState);
       this.setState(
         { chartData: update(this.state.chartData, {datasets: {data: {$set: sizeArr}}})
       })
-    console.log("THIS.STATE.CHARTDATA", this.state.chartData);
     })
   }
 
   render(){
-    console.log("Chart Data", this.state.chartData);
     return(
       <div className="beach-info teal lighten-2">
           <h1> {this.props.beachSpotList} </h1>
