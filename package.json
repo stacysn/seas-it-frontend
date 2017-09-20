@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "chart.js": "^2.7.0",
+    "cookie-parser": "^1.4.3",
     "http": "0.0.0",
     "immutability-helper": "^2.4.0",
     "jquery": "^3.2.1",
@@ -12,6 +13,8 @@
     "node-fetch": "^1.7.3",
     "node-fetch-json": "0.0.3",
     "nodemon": "^1.11.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "react": "^15.6.1",
     "react-bar-chart": "^0.1.2",
     "react-chartjs-2": "^2.6.2",
