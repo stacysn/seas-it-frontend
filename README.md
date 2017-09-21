@@ -1,4 +1,4 @@
-# <img src="/public/images/seasIt.png" height=100> Seas It
+# <img src="/public/images/seasIt.png" height=100> [Seas It](https://seas-it.herokuapp.com/)
 ### A surfer's guide using React.js to find the best conditions in the top 4 beaches of Santa Cruz, California.
 
 This app is designed for surfers to check the conditions of the beaches and to form a friendly surfing community in the Santa Cruz area.
