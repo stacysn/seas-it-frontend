@@ -9,9 +9,9 @@ class BodyContainer extends Component {
   render(){
     if (!this.props.isLoggedIn) {
       return(
-        <div className='About App' >
+        <div className='about-app center' >
           <h4> Check out the best conditions in Santa Cruz </h4>
-          <h4> Chat with fellow surfers for tips, updates, and meet new friends </h4>
+          <h4> Chat with fellow surfers for tips, updates, and meet new surfers </h4>
           <h4> Seas the day </h4>
         </div>
       )

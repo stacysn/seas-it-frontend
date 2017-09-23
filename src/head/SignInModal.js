@@ -32,7 +32,7 @@ class SignInModal extends Component {
         <div className='modal-content' style={modalStyle}>
           <form className='row m12' onSubmit={this.props.handleSubmit}>
             <div className='col m12 valign-wrapper'>
-              <div className='col m11'>
+              <div className='welcome-modal col m11'>
                 <h3>Welcome Back</h3>
               </div>
               <div className='col m1'>

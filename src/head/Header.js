@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import SignupModal from './SignupModal.js'
 import SignInModal from './SignInModal.js'
 
+
 class Header extends Component {
   render () {
     if (!this.props.isLoggedIn) {
@@ -17,7 +18,7 @@ class Header extends Component {
                 <img src="../images/seasIt.png"/>
               </a>
               <a className='brand-logo center'>Seas it</a>
-              <ul id='navList' className='right hide-on-med-and-down'>
+              <ul id='nav-list' className='right hide-on-med-and-down'>
                 <li><a onClick={this.props.toggleSignInModal}>Sign In</a></li>
                 <li><a onClick={this.props.toggleSignupModal}>Sign Up</a></li>
               </ul>

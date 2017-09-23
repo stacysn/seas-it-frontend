@@ -20,11 +20,16 @@ body {
 main {
   flex: 1 0 auto;
 }
-/*.parallax-container {
-  /*background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  background-image: url("https://i.imgur.com/Z75BVf5.jpg");*/
-  /*height: 80%*/
-/*}*/
+
+.brand-logo, .welcome-modal, .list-group {
+  font-family: 'Permanent Marker', cursive;
+}
+
+.about-app {
+  font-family: 'Amatic SC', cursive;
+  position: center
+}
+
+.page-footer, #nav-list, .input-field, #navList, .beach-info, .chart{
+  font-family: 'Amatic SC', cursive;
+}
