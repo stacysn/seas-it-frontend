@@ -30,6 +30,6 @@ main {
   position: center
 }
 
-.page-footer, #nav-list, .input-field, #navList, .beach-info, .chart{
+.page-footer, #nav-list, .input-field, #navList, .beach-info, .create-modal{
   font-family: 'Amatic SC', cursive;
 }

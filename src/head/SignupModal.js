@@ -34,7 +34,7 @@ class SignupModal extends Component {
           <form className='col m12'>
             <div className='row'>
               <div className='col m12 valign-wrapper'>
-                <div className='col m11'>
+                <div className='create-modal col m11'>
                   <h3>Create Account</h3>
                 </div>
                 <div className='col m1'>
