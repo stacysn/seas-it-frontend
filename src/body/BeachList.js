@@ -71,6 +71,11 @@ class BeachList extends Component {
       this.setState({selectedBeachNumber: 4})
     }
 
+    backToList = (event) => {
+      this.setState({selectedBeach: null})
+      this.setState({selectedBeachNumber: null})
+    }
+
     render(){
       if (this.state.selectedBeach === null) {
         return (
@@ -84,21 +89,21 @@ class BeachList extends Component {
         )
       } else if (this.state.selectedBeach === 0) {
         return (
-          <BeachPage selectedBeachNumber={this.state.selectedBeachNumber} userName={this.props.userName} beachSpotList={this.state.beachSpotList[0]} date={this.state.date} currentTime={this.state.currentTime}/>
+          <BeachPage backToList={(event)=>this.backToList(event)} selectedBeachNumber={this.state.selectedBeachNumber} userName={this.props.userName} beachSpotList={this.state.beachSpotList[0]} date={this.state.date} currentTime={this.state.currentTime}/>
         );
       } else if (this.state.selectedBeach === 1) {
           return(
-          <BeachPage selectedBeachNumber={this.state.selectedBeachNumber} userName={this.props.userName} beachSpotList={this.state.beachSpotList[1]} date={this.state.date} currentTime={this.state.currentTime}/>
+          <BeachPage backToList={(event)=>this.backToList(event)} selectedBeachNumber={this.state.selectedBeachNumber} userName={this.props.userName} beachSpotList={this.state.beachSpotList[1]} date={this.state.date} currentTime={this.state.currentTime}/>
           )
       }
         else if (this.state.selectedBeach === 2) {
         return (
-          <BeachPage selectedBeachNumber={this.state.selectedBeachNumber} userName={this.props.userName} beachSpotList={this.state.beachSpotList[2]} date={this.state.date} currentTime={this.state.currentTime}/>
+          <BeachPage backToList={(event)=>this.backToList(event)} selectedBeachNumber={this.state.selectedBeachNumber} userName={this.props.userName} beachSpotList={this.state.beachSpotList[2]} date={this.state.date} currentTime={this.state.currentTime}/>
         )
       }
         else if (this.state.selectedBeach === 3) {
         return (
-          <BeachPage selectedBeachNumber={this.state.selectedBeachNumber} userName={this.props.userName} beachSpotList={this.state.beachSpotList[3]} date={this.state.date} currentTime={this.state.currentTime}/>
+          <BeachPage backToList={(event)=>this.backToList(event)} selectedBeachNumber={this.state.selectedBeachNumber} userName={this.props.userName} beachSpotList={this.state.beachSpotList[3]} date={this.state.date} currentTime={this.state.currentTime}/>
         )
       }
     }

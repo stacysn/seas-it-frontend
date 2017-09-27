@@ -43,9 +43,14 @@ class BeachPage extends Component {
   render(){
     return(
       <div className="beach-info teal lighten-2">
-          <h1> {this.props.beachSpotList} </h1>
-          <h4> Date: {this.props.date} </h4>
-          <h4> Current Time: {this.props.currentTime} </h4>
+        <div>
+          <a className="waves-effect waves-light btn black" onClick={this.props.backToList}>Back to Beach List </a>
+        </div>
+
+        <h1> {this.props.beachSpotList} </h1>
+        <h4> Date: {this.props.date} </h4>
+        <h4> Current Time: {this.props.currentTime} </h4>
+        
         <div>
           <Chart data={this.state.chartData} redraw/>
         </div>
