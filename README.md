@@ -1,11 +1,11 @@
-# <img src="/public/images/seasIt.png" height=100> [Seas It](https://seas-it.herokuapp.com/)
+# <img src="/public/images/readme1.jpg" height=100> [Seas It](https://seas-it.herokuapp.com/)
 ### A surfer's guide using React.js to find the best conditions in the top 4 beaches of Santa Cruz, California.
 
 This app is designed for surfers to check the conditions of the beaches and to form a friendly surfing community in the Santa Cruz area.
 Surf users will be able to chat with fellow surfers on the page of the desired beach to find out who else is going, or any tips and updates about the area.
 
 
-# <img src="/public/images/beachList.jpg" height=300>
+# <img src="/public/images/readme2.jpg" height=300>
 #### Technologies Used:
 - React.js 15.6.1
 - Express 4.15.4
@@ -15,16 +15,19 @@ Surf users will be able to chat with fellow surfers on the page of the desired b
 - Chart.js
 - Nodemon
 - HTML 5
+- Heroku
+
 
 ##### Chat Room for Surfers within each Beach Page
-# <img src="/public/images/chatSea.jpg" height=300>
+# <img src="/public/images/readme3.jpg" height=300>
 
 #### Features:
 - `socket.io` : Chat room for surfers to keep updated with current conditions from other users and to ensure safety
+  - connection still needs to be added
 -  SpitCast Website API : Surfing App with surfing areas around California
 - `Chart.js` : Bar graph that uses SpitCast API to show current day's wave height
 
-# <img src="/public/images/spitcast.jpg" height=100> <img src="/public/images/beachChart.jpg" height=200>
+# <img src="/public/images/spitcast.jpg" height=100>
 
 #### User Story:
 - User will be able to an account
@@ -37,7 +40,7 @@ Surf users will be able to chat with fellow surfers on the page of the desired b
 - Incorporate Google Maps API to show location of beaches
 - Create User Profile
   - add surf buddies
-  - save beaches
+  - users able to save beaches
 
 #### Resources Used:  
 - [www.spitcast.com](https://www.spitcast.com)
