@@ -1,4 +1,4 @@
-# <img src="/public/images/seasIt.jpg" height=100> [Seas It](https://seas-it.herokuapp.com/)
+# <img src="/public/images/seasIt.png" height=100> [Seas It](https://seas-it.herokuapp.com/)
 ### A surfer's guide using React.js to find the best conditions in the top 4 beaches of Santa Cruz, California.
 
 This app is designed for surfers to check the conditions of the beaches and to form a friendly surfing community in the Santa Cruz area.
@@ -18,7 +18,7 @@ Surf users will be able to chat with fellow surfers on the page of the desired b
 - Heroku
 
 # <img src="/public/images/readme2.jpg" height=300>
-Some of the top favorite beaches in Santa Cruz for surfing. 
+Some of the top favorite beaches in Santa Cruz for surfing.
 
 ##### Chat Room for Surfers within each Beach Page
 # <img src="/public/images/readme3.jpg" height=300>
