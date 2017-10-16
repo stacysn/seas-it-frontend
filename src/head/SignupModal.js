@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 
 class SignupModal extends Component {
   render () {
-    if
-    (!this.props.isSignUpOpen) {
+    if (!this.props.isSignUpOpen) {
       return null
     }
 
