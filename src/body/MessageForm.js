@@ -12,7 +12,8 @@ class MessageForm extends Component{
   handleSubmit = (e) => {
       e.preventDefault();
       var message = {
-          text : this.state.text
+        userName: this.props.userName,
+        text : this.state.text
       }
       this.props.onMessageSubmit(message);
       this.setState({ text: '' });

@@ -5,7 +5,7 @@ import Message from './Message';
 import MessageForm from './MessageForm';
 import MessageList from './MessageList'
 import io from 'socket.io-client';
-const socket = io.connect(process.env.SOCKET_URL);
+const socket = io.connect('http://localhost:3001');
 
 class ChatApp extends Component{
   constructor(props){
@@ -15,23 +15,29 @@ class ChatApp extends Component{
         messages: [],
         text: ''
       }
-
   }
 
   componentDidMount = () => {
-      socket.on('init', this._initialize);
-      socket.on('send:message', this._messageRecieve);
-      socket.on('user:join', this._userJoined);
-      socket.on('user:left', this._userLeft);
-      socket.on('change:name', this._userChangedName);
+    socket.on('connect', () => socket.emit('join', 'Hello world from client'));
+    socket.on('init', this._initialize);
+    socket.on('send:message', this._messageReceive);
+    socket.on('messages', (data) => console.log(data));
+    socket.on('broad', (msg) => {
+      const messages = this.state.messages;
+      messages.push(msg);
+      this.setState({messages: messages});
+    })
+    socket.on('user:join', this._userJoined);
+    socket.on('user:left', this._userLeft);
+    socket.on('change:name', this._userChangedName);
   }
 
   _initialize = (data) => {
       var {users, name} = data;
-      this.setState({users, user: name});
+      this.setState({users: users});
   }
 
-  _messageRecieve = (message) => {
+  _messageReceive = (message) => {
       var {messages} = this.state;
       messages.push(message);
       this.setState({messages});
@@ -73,10 +79,10 @@ class ChatApp extends Component{
   }
 
   handleMessageSubmit = (message) => {
-      var {messages} = this.state;
-      messages.push(message);
-      this.setState({messages});
-      socket.emit('send:message', message);
+    var {messages} = this.state;
+    this.setState({messages: messages});
+    console.log(message);
+    socket.emit('send:message', message);
   }
 
   // handleChangeName = (newName) => {
@@ -101,7 +107,6 @@ class ChatApp extends Component{
               <MessageList
                   messages={this.state.messages}
                   userName={this.props.userName}
-
               />
               <MessageForm
                   onMessageSubmit={this.handleMessageSubmit}
