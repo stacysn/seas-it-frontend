@@ -71,6 +71,5 @@ const BeachData = [
 db.Beach.remove({}, function(err){
   db.Beach.create(BeachData, function(err, beaches){
     if (err) { return console.log('ERROR', err); }
-    console.log("all beaches:", beaches.length);
   });
 });

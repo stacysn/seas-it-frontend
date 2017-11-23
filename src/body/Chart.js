@@ -5,7 +5,6 @@ import $ from 'jquery'
 
 class Chart extends Component{
   render(){
-    console.log("THIS.PROPS.DATA", this.props.data);
     return (
       <div className="chart">
         <Bar

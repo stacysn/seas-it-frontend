@@ -74,7 +74,6 @@ router.get('/', function(req,res) {
 
 // auth routes
 app.post('/signup', function signup (req, res) {
-  console.log(`${req.body.username} ${req.body.password}`)
   User.register(new User({ username: req.body.username }), req.body.password,
     function (err, newUser) {
       passport.authenticate('local')(req, res, function () {
@@ -85,13 +84,11 @@ app.post('/signup', function signup (req, res) {
 })
 
 app.post('/login', passport.authenticate('local'), function (req, res) {
-  console.log(JSON.stringify(req.user));
   res.send(req.user);
 });
 
 // passport log out
 app.get('/logout', function(req, res){
-  console.log("attempting to logout");
   req.logout();
   res.redirect('/');
 });

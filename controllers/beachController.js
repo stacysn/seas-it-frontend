@@ -4,7 +4,6 @@ var fetch = require('node-fetch');
 const fetchJson = require('node-fetch-json');
 
 function getAllBeaches(req, res){
-  console.log("YOU'VE GOT ME AT getAllBeaches");
   db.Beach.find({}, function(err, allBeaches) {
     //access external db
     if (err)

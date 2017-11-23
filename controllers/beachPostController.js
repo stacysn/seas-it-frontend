@@ -29,7 +29,6 @@ function getOne(req, res){ //GET one beachPost
 }
 
 function updateBeachPost(req, res){
-  console.log("You've hit me at updateBeachPost!");
   db.Beach.findById(req.params.beachId, function (err, beach) {
     if (err) return res.json(err);
     const beachPost = beach.beachPosts.id(req.params.id);
